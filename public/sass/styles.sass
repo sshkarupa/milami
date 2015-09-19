@@ -1,0 +1,329 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic)
+
+form,
+fieldset,
+input,
+p,
+blockquote,
+table,
+th,
+td,
+embed,
+object,
+body,
+ul
+  padding: 0
+  margin: 0
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+fieldset,
+img,
+abbr
+  border: 0
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+th,
+var
+  font-weight: normal
+  font-style: normal
+
+ul
+  list-style: none
+
+caption,
+th
+  text-align: left
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  font-size: 1em
+  margin: 0 0
+
+q:before,
+q:after
+  content: ''
+
+a,
+ins
+  text-decoration: none
+
+input,
+textarea
+  -webkit-appearance: none
+  border-radius: 0
+
+html
+  box-sizing: border-box
+
+
+*,
+*:before,
+*:after
+  box-sizing: inherit
+
+html
+  font-size: 10px
+
+body
+  height: 100%
+  padding-top: 10rem
+  background-color: #e8e8e8
+  font-family: 'PT Sans', sans-serif
+
+.heart
+  max-width: 100%
+  width: 500px
+  height: 500px
+  position: relative
+  margin-right: auto
+  margin-left: auto
+  padding-top: 6rem
+  text-align: center
+  font-size: 1.6rem
+
+.heart__title
+  position: relative
+  z-index: 30
+  font-size: 4.8rem
+  line-height: 1
+  color: #a40298
+  text-shadow: 3px 3px 4px #f57ff3
+
+.heart__title a
+  color: inherit
+
+.heart__subtitle
+  position: relative
+  z-index: 30
+  margin-bottom: 1.5rem
+  color: #d188cb
+  font-size: 1.8rem
+
+.heart__subtitle a
+  color: inherit
+
+.main-form
+  position: relative
+  width: 50%
+  margin: 0 auto
+  z-index: 30
+  font-size: 1.4rem
+
+.main-form--single-field
+  padding-top: 3rem
+
+.main-form__field
+  display: block
+  width: 100%
+  height: 4rem
+  margin-bottom: 1.5rem
+  padding: 1rem
+  box-shadow: inset 1px 2px 1px rgba(0, 0, 0, 0.3)
+  border-radius: 7px
+  font-size: 1.6rem
+  font-family: inherit
+
+.main-form__field:focus,
+.main-form__field:active
+  outline: none
+
+.main-form__btn
+  min-width: 70%
+  height: 4rem
+  margin: 0 auto 1.5rem
+  padding-right: 1rem
+  padding-left: 1rem
+  color: #fff
+  border: none
+  background: #a7079a
+  border-radius: 7px
+  text-align: center
+  font-size: 1.6rem
+
+.main-form__extras
+  font-size: 0
+
+.main-form__extras li
+  display: inline-block
+  width: 50%
+  text-align: left
+
+.main-form__extras li:last-child
+  text-align: right
+
+.main-form__link
+  font-size: 1.4rem
+  color: #f000dd
+
+.main-form__text
+  margin-bottom: 1rem
+  color: #d188cb
+  text-align: justify
+
+.main-form__text-message
+  margin-top: 3rem
+  text-align: center
+
+.error-msg
+  margin-top: -1rem
+  margin-bottom: .5rem
+  color: #F10169
+
+.heart-img
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 10
+  max-width: 100%
+  width: 500px
+  height: 500px
+  background: url(../img/milami-heart.svg)
+  background-size: contain
+  background-repeat: no-repeat
+  -webkit-animation: heartbeat 2s infinite
+  animation: heartbeat 2s infinite
+
+.heart-echo
+  position: absolute
+  top: 0
+  left: 0
+  width: 500px
+  height: 500px
+  z-index: 5
+  background-size: contain
+  background-repeat: no-repeat
+  opacity: 0.35
+  -webkit-animation: echo 2s infinite
+  animation: echo 2s infinite
+
+
+@media screen and (max-width: 551px)
+  .main-form
+    width: 70%
+
+  .main-form--single-field
+    padding-top: 2rem
+
+  .main-form__extras li
+    display: block
+    width: 100%
+    margin-bottom: 1rem
+    text-align: center
+
+  .main-form__extras li:last-child
+    text-align: center
+
+@media screen and (max-width: 451px)
+  html
+    font-size: 8px
+
+@media screen and (max-width: 351px)
+  .heart
+    padding-top: 4rem
+
+  .main-form
+    width: 80%
+
+@-webkit-keyframes heartbeat
+  20%
+    -webkit-transform: scale(1.1)
+    transform: scale(1.1)
+
+  40%
+    -webkit-transform: scale(1)
+    transform: scale(1)
+
+  60%
+    -webkit-transform: scale(1.1)
+    transform: scale(1.1)
+
+  80%
+    -webkit-transform: scale(1)
+    transform: scale(1)
+
+@keyframes heartbeat
+  20%
+    -webkit-transform: scale(1.1)
+    transform: scale(1.1)
+
+  40%
+    -webkit-transform: scale(1)
+    transform: scale(1)
+
+  60%
+    -webkit-transform: scale(1.1)
+    transform: scale(1.1)
+
+  80%
+    -webkit-transform: scale(1)
+    transform: scale(1)
+
+@-webkit-keyframes echo
+  20%
+    opacity: 0
+    -webkit-transform: scale(1.5)
+    transform: scale(1.5)
+
+  40%
+    opacity: 0
+    -webkit-transform: scale(1)
+    transform: scale(1)
+
+  40.1%
+    opacity: 0.35
+
+  60%
+    opacity: 0
+    -webkit-transform: scale(1.5)
+    transform: scale(1.5)
+
+  100%
+    opacity: 0
+    -webkit-transform: scale(1)
+    transform: scale(1)
+
+@keyframes echo
+  20%
+    opacity: 0
+    -webkit-transform: scale(1.5)
+    transform: scale(1.5)
+
+  40%
+    opacity: 0
+    -webkit-transform: scale(1)
+    transform: scale(1)
+
+  40.1%
+    opacity: 0.35
+
+  60%
+    opacity: 0
+    -webkit-transform: scale(1.5)
+    transform: scale(1.5)
+
+  100%
+    opacity: 0
+    -webkit-transform: scale(1)
+    transform: scale(1)
+
+
+

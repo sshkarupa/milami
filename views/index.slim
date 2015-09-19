@@ -1,0 +1,24 @@
+form.main-form id="signIn"
+  input.main-form__field type="email" name="" placeholder="Логин" required=""
+  input.main-form__field type="password" name="" placeholder="Пароль" required=""
+  p.error-msg
+  input.main-form__btn type="submit" value="Войти"
+
+  ul.main-form__extras
+    li
+      a.main-form__link href="/reset" Забыли пароль?
+    li
+      a.main-form__link href="/signup" Получить инвайт
+
+javascript:
+  window.addEventListener('load', function(){
+    var mainForm = document.querySelector('#signIn'),
+        errBoard = mainForm.querySelector('.error-msg');
+        //console.log(mainForm);
+    mainForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      //debugger;
+      errBoard.innerHTML = "Неверная пара логин/пароль";
+    });
+  });
+
