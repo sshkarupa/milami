@@ -1,31 +1,34 @@
 require 'sinatra'
+require 'sinatra/reloader' if development?
 require 'slim'
 require 'sass'
-require "pony"
+require 'pony'
+require 'dotenv'
 
-get('/styles.css'){ sass :styles, :style => :compressed, :views => './public/sass' }
+get('/styles.css'){ sass :styles, style: :compressed, views: './public/sass' }
+
+Dotenv.load
 
 configure do
-  set :send_to, 'to_email@email.com'
-  set :via_options => {
-    :address         => 'smtp.gmail.com',
-    :port            => '587',
-    :user_name       => 'user@gmail.com',
-    :password        => 'password',
-    :authentication  => :plain,
-    :domain          => "mail.gmail.com"
+  set via_options: {
+    address: 'smtp.gmail.com',
+    port: '587',
+    user_name: ENV['USER_NAME'] ,
+    password: ENV['USER_PASSWORD'],
+    authentication: :plain,
+    domain: 'mail.gmail.com'
     }
 end
 
 helpers do
   def send_email(info, email)
     options = {
-      :to => settings.send_to,
-      :from => "Milami <#{settings.via_options[:user_name]}>",
-      :subject => "new contact",
-      :body => "#{info} : #{email}",
-      :via => :smtp,
-      :via_options => settings.via_options }
+      to: ENV['SEND_TO'],
+      from: "milami.cc <#{ENV['USER_NAME']}>",
+      subject: "new contact",
+      body: "#{info} : #{email}",
+      via: :smtp,
+      via_options: settings.via_options }
     thr = Thread.new { Pony.mail(options) }
   end
 end
@@ -35,7 +38,7 @@ get '/' do
 end
 
 get '/reset' do
-  slim :reset, :layout => (request.xhr? ? false : :layout)
+  slim :reset, layout: (request.xhr? ? false : :layout)
 end
 
 post '/reset' do
@@ -45,6 +48,7 @@ post '/reset' do
 end
 
 get '/signup' do
+  puts ENV['SEND_TO']
   slim :signup
 end
 
