@@ -48,7 +48,6 @@ post '/reset' do
 end
 
 get '/signup' do
-  puts ENV['SEND_TO']
   slim :signup
 end
 
